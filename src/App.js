@@ -20,7 +20,7 @@ import "./App.css";
 function App() {
 
     // CART STATE
-    const [cart, setCart] = useState([
+    const [cart] = useState([
         {
             product_id: 1,
             product_name: "iPhone 15",
