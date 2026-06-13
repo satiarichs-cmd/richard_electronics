@@ -41,6 +41,7 @@ const Getproduct = () => {
                 }
             }
         });
+
     };
 
     const addToCart = (item) => {
@@ -72,56 +73,52 @@ const Getproduct = () => {
         }
 
         alert("Added to cart");
+
     };
 
     return (
 
-        <div className="container mt-4">
+        <div className="container py-3">
 
             <h2 className="text-center fw-bold mb-4">
-                🛒 Products
+                🛒 Our Products
             </h2>
 
             <div className="row">
 
                 {products.length === 0 ? (
-                    <h4 className="text-center">No products found</h4>
+
+                    <h4 className="text-center">
+                        No products found
+                    </h4>
+
                 ) : (
 
                     products.map((item) => (
 
                         <div
                             key={item.product_id}
-                            className="col-3 col-lg-2 mb-4"
+                            className="col-6 col-md-3 col-lg-2 mb-3"
                         >
 
                             <div
-                                className="card h-100 border-0 shadow-sm text-center"
+                                className="card h-100 border-0 shadow-sm"
                                 style={{
-                                    borderRadius: "18px",
+                                    borderRadius: "14px",
                                     overflow: "hidden",
-                                    transition: "0.3s ease",
-                                    cursor: "pointer"
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = "translateY(-5px)";
-                                    e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.15)";
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = "translateY(0)";
-                                    e.currentTarget.style.boxShadow = "";
+                                    transition: "0.3s ease"
                                 }}
                             >
 
                                 {/* PRODUCT IMAGE */}
                                 <div
                                     style={{
-                                        height: "150px",
+                                        height: "120px",
                                         backgroundColor: "#f8f9fa",
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        padding: "10px"
+                                        padding: "8px"
                                     }}
                                 >
 
@@ -138,13 +135,13 @@ const Getproduct = () => {
                                 </div>
 
                                 {/* PRODUCT DETAILS */}
-                                <div className="card-body p-2">
+                                <div className="card-body p-2 d-flex flex-column">
 
                                     <span
                                         className="badge bg-primary mb-2"
                                         style={{
-                                            fontSize: "10px",
-                                            borderRadius: "20px"
+                                            width: "fit-content",
+                                            fontSize: "9px"
                                         }}
                                     >
                                         {item.product_category}
@@ -153,42 +150,43 @@ const Getproduct = () => {
                                     <h6
                                         className="fw-bold"
                                         style={{
-                                            fontSize: "13px",
-                                            minHeight: "38px"
+                                            fontSize: "12px",
+                                            minHeight: "30px"
                                         }}
                                     >
                                         {item.product_name}
                                     </h6>
-<p
-    className="text-muted mb-2"
-  style={{
-    fontSize: "11px",
-    display: "-webkit-box",
-    WebkitLineClamp: 2,
-    WebkitBoxOrient: "vertical",
-    overflow: "hidden"
-}}
->
-    {item.product_description}
-</p>
-                                    <div
-                                        className="text-success fw-bold mb-2"
+
+                                    <p
+                                        className="text-light"
                                         style={{
-                                            fontSize: "14px"
+                                            fontSize: "10px",
+                                            minHeight: "30px",
+                                            overflow: "hidden"
                                         }}
                                     >
+                                        {item.product_description}
+                                    </p>
+
+                                    <h6 className="text-success fw-bold mt-auto">
                                         Ksh {item.product_cost}
-                                    </div>
+                                    </h6>
 
                                     <button
-                                        className="btn btn-outline-warning btn-sm w-100 mb-2"
+                                        className="btn btn-outline-warning btn-sm w-100 mt-1"
+                                        style={{
+                                            fontSize: "10px"
+                                        }}
                                         onClick={() => addToCart(item)}
                                     >
                                         🛒 Add To Cart
                                     </button>
 
                                     <button
-                                        className="btn btn-success btn-sm w-100"
+                                        className="btn btn-success btn-sm w-100 mt-1"
+                                        style={{
+                                            fontSize: "10px"
+                                        }}
                                         onClick={() => goToPayment(item)}
                                     >
                                         Buy Now
@@ -209,6 +207,7 @@ const Getproduct = () => {
         </div>
 
     );
+
 };
 
 export default Getproduct;
