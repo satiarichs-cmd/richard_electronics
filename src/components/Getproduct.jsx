@@ -92,21 +92,20 @@ const Getproduct = () => {
 
                         <div
                             key={item.product_id}
-                            className="col-4 d-flex justify-content-center mb-4"
+                            className="col-3 d-flex justify-content-center mb-4"
                         >
 
                             <div
-                                className="card shadow p-3 text-center border-0"
+                                className="card shadow p-2 text-center border-0"
                                 style={{
-                                    width: "18rem",
+                                    width: "100%",
                                     borderRadius: "16px"
                                 }}
                             >
 
-                                {/* IMAGE */}
                                 <div
                                     style={{
-                                        height: "220px",
+                                        height: "120px",
                                         width: "100%",
                                         backgroundColor: "#f8f9fa",
                                         borderRadius: "12px",
@@ -114,7 +113,7 @@ const Getproduct = () => {
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        padding: "10px"
+                                        padding: "5px"
                                     }}
                                 >
 
@@ -130,35 +129,50 @@ const Getproduct = () => {
 
                                 </div>
 
-                                <div className="card-body">
+                                <div className="card-body p-2">
 
-                                    <h5 className="card-title">
+                                    <h6
+                                        className="card-title"
+                                        style={{ fontSize: "12px" }}
+                                    >
                                         {item.product_name}
-                                    </h5>
+                                    </h6>
 
-                                    <p className="text-light">
+                                    <p
+                                        className="text-light"
+                                        style={{
+                                            fontSize: "10px",
+                                            marginBottom: "5px"
+                                        }}
+                                    >
                                         {item.product_description}
                                     </p>
 
-                                    <h6 className="text-success">
+                                    <h6
+                                        className="text-success"
+                                        style={{ fontSize: "11px" }}
+                                    >
                                         Ksh {item.product_cost}
                                     </h6>
 
-                                    <span className="badge bg-primary mb-2">
+                                    <span
+                                        className="badge bg-primary mb-2"
+                                        style={{ fontSize: "9px" }}
+                                    >
                                         {item.product_category}
                                     </span>
 
-                                    {/* CART BUTTON */}
                                     <button
-                                        className="btn btn-warning w-100 mt-2"
+                                        className="btn btn-warning w-100 mt-1"
+                                        style={{ fontSize: "10px" }}
                                         onClick={() => addToCart(item)}
                                     >
                                         Add To Cart
                                     </button>
 
-                                    {/* BUY BUTTON */}
                                     <button
-                                        className="btn btn-success w-100 mt-2"
+                                        className="btn btn-success w-100 mt-1"
+                                        style={{ fontSize: "10px" }}
                                         onClick={() => goToPayment(item)}
                                     >
                                         Buy Now
