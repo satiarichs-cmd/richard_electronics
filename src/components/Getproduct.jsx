@@ -92,7 +92,7 @@ const Getproduct = () => {
 
                         <div
                             key={item.product_id}
-                            className="col-md-3 sm-3 d-flex justify-content-center mb-4"
+                            className="col-sm-3  d-flex justify-content-center mb-4"
                         >
 
                             <div
