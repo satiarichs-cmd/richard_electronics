@@ -76,13 +76,13 @@ const Getproduct = () => {
 
     return (
 
-        <div className="container mt-5">
+        <div className="container mt-4">
 
-            <h2 className="text-center mb-4">
+            <h2 className="text-center fw-bold mb-4">
                 🛒 Products
             </h2>
 
-            <div className="row justify-content-center">
+            <div className="row">
 
                 {products.length === 0 ? (
                     <h4 className="text-center">No products found</h4>
@@ -92,87 +92,103 @@ const Getproduct = () => {
 
                         <div
                             key={item.product_id}
-                            className="col-3 d-flex justify-content-center mb-4"
+                            className="col-3 col-lg-2 mb-4"
                         >
 
                             <div
-                                className="card shadow p-2 text-center border-0"
+                                className="card h-100 border-0 shadow-sm text-center"
                                 style={{
-                                    width: "100%",
-                                    borderRadius: "16px"
+                                    borderRadius: "18px",
+                                    overflow: "hidden",
+                                    transition: "0.3s ease",
+                                    cursor: "pointer"
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.transform = "translateY(-5px)";
+                                    e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.15)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = "translateY(0)";
+                                    e.currentTarget.style.boxShadow = "";
                                 }}
                             >
 
+                                {/* PRODUCT IMAGE */}
                                 <div
                                     style={{
-                                        height: "120px",
-                                        width: "100%",
+                                        height: "150px",
                                         backgroundColor: "#f8f9fa",
-                                        borderRadius: "12px",
-                                        overflow: "hidden",
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        padding: "5px"
+                                        padding: "10px"
                                     }}
                                 >
 
                                     <img
                                         src={`https://ynwsatia.alwaysdata.net/static/images/${item.product_image}`}
-                                        alt="product"
+                                        alt={item.product_name}
                                         style={{
-                                            maxHeight: "100%",
                                             maxWidth: "100%",
+                                            maxHeight: "100%",
                                             objectFit: "contain"
                                         }}
                                     />
 
                                 </div>
 
+                                {/* PRODUCT DETAILS */}
                                 <div className="card-body p-2">
-
-                                    <h6
-                                        className="card-title"
-                                        style={{ fontSize: "12px" }}
-                                    >
-                                        {item.product_name}
-                                    </h6>
-
-                                    <p
-                                        className="text-light"
-                                        style={{
-                                            fontSize: "10px",
-                                            marginBottom: "5px"
-                                        }}
-                                    >
-                                        {item.product_description}
-                                    </p>
-
-                                    <h6
-                                        className="text-success"
-                                        style={{ fontSize: "11px" }}
-                                    >
-                                        Ksh {item.product_cost}
-                                    </h6>
 
                                     <span
                                         className="badge bg-primary mb-2"
-                                        style={{ fontSize: "9px" }}
+                                        style={{
+                                            fontSize: "10px",
+                                            borderRadius: "20px"
+                                        }}
                                     >
                                         {item.product_category}
                                     </span>
 
+                                    <h6
+                                        className="fw-bold"
+                                        style={{
+                                            fontSize: "13px",
+                                            minHeight: "38px"
+                                        }}
+                                    >
+                                        {item.product_name}
+                                    </h6>
+<p
+    className="text-muted mb-2"
+  style={{
+    fontSize: "11px",
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
+    overflow: "hidden"
+}}
+>
+    {item.product_description}
+</p>
+                                    <div
+                                        className="text-success fw-bold mb-2"
+                                        style={{
+                                            fontSize: "14px"
+                                        }}
+                                    >
+                                        Ksh {item.product_cost}
+                                    </div>
+
                                     <button
-                                        className="btn btn-warning w-100 mt-1"
-                                        style={{ fontSize: "10px" }}
+                                        className="btn btn-outline-warning btn-sm w-100 mb-2"
                                         onClick={() => addToCart(item)}
                                     >
-                                        Add To Cart
+                                        🛒 Add To Cart
                                     </button>
 
                                     <button
-                                        className="btn btn-success w-100 mt-1"
-                                        style={{ fontSize: "10px" }}
+                                        className="btn btn-success btn-sm w-100"
                                         onClick={() => goToPayment(item)}
                                     >
                                         Buy Now
@@ -191,6 +207,7 @@ const Getproduct = () => {
             </div>
 
         </div>
+
     );
 };
 
